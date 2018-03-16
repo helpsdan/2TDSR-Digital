@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
@@ -19,6 +20,7 @@ import javax.ws.rs.core.UriInfo;
 import br.com.fiap.ws.dao.ProdutoDAO;
 import br.com.fiap.ws.dao.impl.ProdutoDAOImpl;
 import br.com.fiap.ws.entity.Produto;
+import br.com.fiap.ws.exception.KeyNotFoundException;
 import br.com.fiap.ws.singleton.EntityManagerFactorySingleton;
 
 @Path("/produto")
@@ -77,6 +79,19 @@ public class ProdutoResource {
 		}
 		return Response.ok().build();
 	}
+	
+	@DELETE
+	@Path("/{id}")
+	public void remover(@PathParam("id")int codigo) {
+		try {
+			dao.delete(codigo);
+		} catch (KeyNotFoundException e) {
+			e.printStackTrace();
+			
+		}
+	}
+	
+	
 	
 	
 
