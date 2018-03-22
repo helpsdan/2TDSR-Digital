@@ -20,6 +20,7 @@ import javax.ws.rs.core.UriInfo;
 import br.com.fiap.ws.dao.ProdutoDAO;
 import br.com.fiap.ws.dao.impl.ProdutoDAOImpl;
 import br.com.fiap.ws.entity.Produto;
+import br.com.fiap.ws.exception.CommitException;
 import br.com.fiap.ws.exception.KeyNotFoundException;
 import br.com.fiap.ws.singleton.EntityManagerFactorySingleton;
 
@@ -85,7 +86,8 @@ public class ProdutoResource {
 	public void remover(@PathParam("id")int codigo) {
 		try {
 			dao.delete(codigo);
-		} catch (KeyNotFoundException e) {
+			dao.commit();
+		} catch (KeyNotFoundException | CommitException e) {
 			e.printStackTrace();
 			
 		}
