@@ -11,6 +11,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name="T_PRODUTO")
 @SequenceGenerator(name="produto", sequenceName="SQ_T_PRODUTO",allocationSize=1)
+// é uma tabela no banco. por isso entity.
 public class Produto {
 
 	@Id
