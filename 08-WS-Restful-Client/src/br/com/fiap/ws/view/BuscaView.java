@@ -20,7 +20,7 @@ public class BuscaView {
 			System.out.println(produto.getNome());
 			System.out.println(produto.getPreco());
 			System.out.println(produto.isDisponivel());
-		} catch (Exception e) {
+		} catch (Exception e) {	
 			System.err.println(e.getMessage());
 		}
 		

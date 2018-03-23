@@ -5,7 +5,7 @@ public class Produto {
 
 	private int codigo;
 	private String nome;
-	private float preco;
+	private double preco;
 	private boolean disponivel;
 
 	public int getCodigo() {
@@ -24,12 +24,12 @@ public class Produto {
 		this.nome = nome;
 	}
 
-	public float getPreco() {
+	public double getPreco() {
 		return preco;
 	}
 
-	public void setPreco(float preco) {
-		this.preco = preco;
+	public void setPreco(double d) {
+		this.preco = d;
 	}
 
 	public boolean isDisponivel() {
