@@ -10,20 +10,19 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="T_PRODUTO")
-@SequenceGenerator(name="produto", sequenceName="SQ_T_PRODUTO",allocationSize=1)
-// é uma tabela no banco. por isso entity.
+@SequenceGenerator(name="produto",sequenceName="SQ_T_PRODUTO",allocationSize=1)
 public class Produto {
 
 	@Id
-	@GeneratedValue(generator="produto", strategy=GenerationType.SEQUENCE)
 	@Column(name="cd_produto")
+	@GeneratedValue(generator="produto",strategy=GenerationType.SEQUENCE)
 	private int codigo;
 	
 	@Column(name="nm_produto",nullable=false)
 	private String nome;
 	
 	@Column(name="vl_produto")
-	private float preco;
+	private double preco;
 	
 	@Column(name="st_disponivel")
 	private boolean disponivel;
@@ -44,11 +43,11 @@ public class Produto {
 		this.nome = nome;
 	}
 
-	public float getPreco() {
+	public double getPreco() {
 		return preco;
 	}
 
-	public void setPreco(float preco) {
+	public void setPreco(double preco) {
 		this.preco = preco;
 	}
 
@@ -59,7 +58,5 @@ public class Produto {
 	public void setDisponivel(boolean disponivel) {
 		this.disponivel = disponivel;
 	}
-
-	
 	
 }

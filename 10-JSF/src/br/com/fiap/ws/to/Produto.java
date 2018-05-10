@@ -1,11 +1,13 @@
 package br.com.fiap.ws.to;
 
-// é um objeto criado para transferir as anotações. Por isso é um TO.
 public class Produto {
 
 	private int codigo;
+	
 	private String nome;
+	
 	private double preco;
+	
 	private boolean disponivel;
 
 	public int getCodigo() {
@@ -28,8 +30,8 @@ public class Produto {
 		return preco;
 	}
 
-	public void setPreco(double d) {
-		this.preco = d;
+	public void setPreco(double preco) {
+		this.preco = preco;
 	}
 
 	public boolean isDisponivel() {
@@ -39,7 +41,5 @@ public class Produto {
 	public void setDisponivel(boolean disponivel) {
 		this.disponivel = disponivel;
 	}
-
-	
 	
 }

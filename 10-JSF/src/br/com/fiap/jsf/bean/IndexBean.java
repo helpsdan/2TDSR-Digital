@@ -7,6 +7,10 @@ public class IndexBean {
 
 	private String nome;
 	
+	public void exibirNome() {
+		System.out.println(nome);
+	}
+
 	public String getNome() {
 		return nome;
 	}
@@ -14,11 +18,5 @@ public class IndexBean {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-
-	public void exibirNome(){
-		System.out.println(nome);
-	}
-	
-	
 	
 }

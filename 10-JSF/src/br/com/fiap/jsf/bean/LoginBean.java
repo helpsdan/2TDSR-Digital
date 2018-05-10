@@ -2,35 +2,36 @@ package br.com.fiap.jsf.bean;
 
 import javax.faces.bean.ManagedBean;
 
-@ManagedBean
+@ManagedBean //CUIDADO COM O IMPORT!!
 public class LoginBean {
 
-	private String user;
-
-	private String pass;
-
+	private String usuario;
+	
+	private String senha;
+	
 	public void validarLogin() {
-		if (user.equals("FIAP") && pass.equals("FIAP2018")) {
-			System.out.println("Logado");
+		if (usuario.equals("FIAP") 
+						&& senha.equals("FIAP2018")) {
+			System.out.println("Logado!");
 		}else {
-			System.out.println("Login incorreto");	
+			System.out.println("Usuário e senha inválidos");
 		}
 	}
 
-	public String getUser() {
-		return user;
+	public String getUsuario() {
+		return usuario;
 	}
 
-	public void setUser(String user) {
-		this.user = user;
+	public void setUsuario(String usuario) {
+		this.usuario = usuario;
 	}
 
-	public String getPass() {
-		return pass;
+	public String getSenha() {
+		return senha;
 	}
 
-	public void setPass(String pass) {
-		this.pass = pass;
+	public void setSenha(String senha) {
+		this.senha = senha;
 	}
-
+	
 }
