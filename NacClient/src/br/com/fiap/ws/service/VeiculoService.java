@@ -1,0 +1,61 @@
+package br.com.fiap.ws.service;
+
+import java.util.Arrays;
+import java.util.List;
+
+import javax.ws.rs.core.MediaType;
+
+import com.sun.jersey.api.client.Client;
+import com.sun.jersey.api.client.ClientResponse;
+import com.sun.jersey.api.client.WebResource;
+
+import br.com.fiap.ws.to.Veiculo;
+
+public class VeiculoService {
+
+	private static final String URL = "http://localhost:8080/NACServer/rest/veiculo";
+	
+	private Client client = Client.create();
+	
+	public void cadastrar(Veiculo veiculo) throws Exception {
+		// Chama o web service
+		WebResource resource = client.resource(URL);
+		ClientResponse resp = resource.type(MediaType.APPLICATION_JSON).post(ClientResponse.class, veiculo);
+			
+		//Valida se deu certo
+		if (resp.getStatus() != 201) {
+			throw new Exception ("Erro " + resp.getStatus());			
+		}
+	}
+	
+	public void atualizar(Veiculo veiculo) throws Exception {
+		// Chamar o web service
+		WebResource resource = client.resource(URL)
+					.path(String.valueOf(veiculo.getCodigo()));
+		ClientResponse resp = resource.type(MediaType.APPLICATION_JSON).put(ClientResponse.class, veiculo);
+		
+		// Validar se deu certo
+		if (resp.getStatus() != 200) {
+			throw new Exception ("Erro " + resp.getStatus());			
+		}
+	}
+	
+	public List<Veiculo> listar() throws Exception{
+		//Chamar o web service
+		WebResource resource = client.resource(URL);
+		ClientResponse resp = resource.accept(MediaType.APPLICATION_JSON).get(ClientResponse.class);
+		//Validar se deu certo
+		if (resp.getStatus() != 200) {
+			throw new Exception ("Erro " + resp.getStatus());			
+		}
+		//Retornar a lista
+		return Arrays.asList(resp.getEntity(Veiculo[].class));
+		
+		
+	}
+	
+	
+	
+	
+	
+}
